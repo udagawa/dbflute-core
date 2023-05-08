@@ -118,7 +118,7 @@ public class DfTableExtractor extends DfAbstractMetaDataBasicExtractor {
     }
 
     public boolean isSystemTableForDBMS(String tableName) {
-        if (isDatabaseOracle() && tableName.startsWith("BIN$")) {
+        if (isDatabaseOracle() && (tableName.startsWith("BIN$") || tableName.startsWith("MLOG$_") || tableName.startsWith("RUPD$_"))) {
             return true;
         }
         if (isDatabaseSQLServer()) {
